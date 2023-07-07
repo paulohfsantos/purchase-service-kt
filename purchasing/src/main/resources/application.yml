@@ -1,0 +1,31 @@
+server:
+  port: 8081
+spring:
+  mvc:
+    path match:
+      matching-strategy: ANT_PATH_MATCHER
+  config:
+    name: purchasing
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: ${URL_PURCHASING}
+    username: ${DB_USER}
+    password: ${DB_PASS}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+        use_sql_comments: true
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+        default_schema: purchasing_db
+        jdbc:
+          time_zone: UTC
+spring-doc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /purchase/swagger-ui.html
+    operationsSorter: method
